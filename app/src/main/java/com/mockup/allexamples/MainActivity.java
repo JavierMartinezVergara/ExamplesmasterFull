@@ -15,10 +15,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
+import com.mockup.allexamples.notificaciones.Notificaciones;
 import com.mockup.allexamples.pokemonRetrofit.PokemonRetrofit;
+import com.mockup.allexamples.sharedPreferencesP.SharedPreferences;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,14 +86,21 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            Intent intent = new Intent(this,PokemonRetrofit.class);
+             intent= new Intent(this,PokemonRetrofit.class);
 
             startActivity(intent);
 
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
+            intent= new Intent(this, SharedPreferences.class);
+
+            startActivity(intent);
+
 
         } else if (id == R.id.nav_slideshow) {
+            intent= new Intent(this, Notificaciones.class);
+
+            startActivity(intent);
 
         } else if (id == R.id.nav_tools) {
 

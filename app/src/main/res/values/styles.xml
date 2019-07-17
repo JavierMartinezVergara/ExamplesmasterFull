@@ -9,7 +9,7 @@
     </style>
 
     <!-- Base application theme. -->
-    <style name="SharepreferencesTheme" >
+    <style name="SharepreferencesTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimarySharedPreferences</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkSharedPreferences</item>

@@ -20,7 +20,8 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int i) {
-        return null;
+
+        return fragmentList.get(i);
     }
 
     @Override
