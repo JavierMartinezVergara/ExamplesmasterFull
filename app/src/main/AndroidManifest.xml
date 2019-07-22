@@ -14,10 +14,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".notificaciones.Notificaciones"></activity>
+        <activity
+            android:name=".JDBCImageSFTP.ImageFTP"
+            android:label="@string/title_activity_image_ftp"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".notificaciones.Notificaciones" />
         <activity
             android:name=".sharedPreferencesP.SharedPreferences"
-            android:theme="@style/SharepreferencesTheme"></activity>
+            android:theme="@style/SharepreferencesTheme" />
         <activity android:name=".pokemonRetrofit.PokemonRetrofit" />
         <activity
             android:name=".MainActivity"
