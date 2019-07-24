@@ -50,5 +50,6 @@ dependencies {
     implementation "com.squareup.picasso:picasso:${versionPacasso}"
 
     //Colecciones Apache (FTP)
+
     implementation 'commons-net:commons-net:3.6'
 }

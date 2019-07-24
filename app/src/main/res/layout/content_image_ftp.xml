@@ -65,7 +65,7 @@ android:layout_width="match_parent"
 android:layout_weight="1"
 android:layout_height="0dp">
 
-<ImageButton
+<Button
     android:layout_width="0dp"
     android:layout_weight="1"
     android:layout_height="30dp"
@@ -74,7 +74,7 @@ android:layout_height="0dp">
     android:background="#FF000000"
     />
 
-<ImageButton
+<Button
     android:layout_width="0dp"
     android:layout_weight="1"
     android:layout_height="30dp"
@@ -82,7 +82,7 @@ android:layout_height="0dp">
     android:tag="#FFFFFFFF"
     android:background="#FFFFFFFF"/>
 
-<ImageButton
+<Button
     android:layout_width="0dp"
     android:layout_weight="1"
     android:layout_height="30dp"
@@ -90,7 +90,7 @@ android:layout_height="0dp">
     android:tag="#FF0000FF"
     android:background="#FF0000FF"/>
 
-<ImageButton
+<Button
     android:layout_width="0dp"
     android:layout_weight="1"
     android:layout_height="30dp"
@@ -98,7 +98,7 @@ android:layout_height="0dp">
     android:tag="#FFFF0000"
     android:background="#FFFF0000"/>
 
-<ImageButton
+<Button
     android:layout_width="0dp"
     android:layout_weight="1"
     android:id="@+id/colorverde"
