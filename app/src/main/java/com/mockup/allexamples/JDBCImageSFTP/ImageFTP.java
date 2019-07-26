@@ -17,6 +17,12 @@ import android.widget.Toast;
 
 import com.mockup.allexamples.R;
 
+import org.apache.commons.net.ftp.FTPClient;
+import org.apache.commons.net.ftp.FTPClientConfig;
+import org.apache.commons.net.ftp.FTPReply;
+
+import java.io.IOException;
+import java.net.SocketException;
 import java.util.UUID;
 
 
@@ -225,6 +231,45 @@ public class ImageFTP extends AppCompatActivity implements View.OnClickListener 
                                 getContentResolver(), lienzo.getDrawingCache(),
                                 UUID.randomUUID().toString()+".png", "drawing");
                         //Mensaje de todo correcto
+
+                        FTPClient ftp = new FTPClient();
+                        FTPClientConfig config = new FTPClientConfig();
+                        config.setServerTimeZoneId("Pacific/Pitcairn"); // change required options
+                        // for example config.setServerTimeZoneId("Pacific/Pitcairn")
+                        ftp.configure(config );
+                        boolean error = false;
+                        try {
+                            int reply;
+                            String server = "192.168.14.142";
+                            ftp.connect(server);
+                            System.out.println("Connected to " + server + ".");
+                            System.out.print(ftp.getReplyString());
+
+                            // After connection attempt, you should check the reply code to verify
+                            // success.
+                            reply = ftp.getReplyCode();
+
+                            if(!FTPReply.isPositiveCompletion(reply)) {
+                                ftp.disconnect();
+                                System.err.println("FTP server refused connection.");
+                                System.exit(1);
+                            }
+         // transfer files
+                            ftp.logout();
+                        } catch(IOException e) {
+                            error = true;
+                            e.printStackTrace();
+                        }  finally {
+                            if(ftp.isConnected()) {
+                                try {
+                                    ftp.disconnect();
+                                } catch(IOException ioe) {
+                                    // do nothing
+                                }
+                            }
+                            System.exit(error ? 1 : 0);
+                        }
+
                         if(imgSaved!=null){
                             Toast savedToast = Toast.makeText(getApplicationContext(),
                                     "¡Dibujo salvado en la galeria!", Toast.LENGTH_SHORT);
