@@ -18,6 +18,7 @@ import android.view.Menu;
 import com.mockup.allexamples.JDBCImageSFTP.ImageFTP;
 import com.mockup.allexamples.notificaciones.Notificaciones;
 import com.mockup.allexamples.pokemonRetrofit.PokemonRetrofit;
+import com.mockup.allexamples.retrofit.Retrofit;
 import com.mockup.allexamples.sharedPreferencesP.SharedPreferences;
 
 public class MainActivity extends AppCompatActivity
@@ -109,7 +110,10 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
 
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_retrofit) {
+            //Activity RBR
+            Intent intent = new Intent(this, Retrofit.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_send) {
 

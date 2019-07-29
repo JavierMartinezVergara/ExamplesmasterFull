@@ -14,4 +14,9 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
     <string name="title_activity_image_ftp">ImageFTP</string>
+
+    <!-- Ricardo -->
+    <string name="titleR">Ricardo B. R.</string>
+    <string name="menu_retrofit">Retrofit</string>
+
 </resources>
