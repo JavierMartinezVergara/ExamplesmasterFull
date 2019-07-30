@@ -16,6 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
 import com.mockup.allexamples.JDBCImageSFTP.ImageFTP;
+import com.mockup.allexamples.javarx.JavaRx;
 import com.mockup.allexamples.notificaciones.Notificaciones;
 import com.mockup.allexamples.pokemonRetrofit.PokemonRetrofit;
 import com.mockup.allexamples.retrofit.Retrofit;
@@ -110,7 +111,14 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
 
 
-        } else if (id == R.id.nav_retrofit) {
+        }
+        else if (id == R.id.javarx) {
+            intent= new Intent(this, JavaRx.class);
+
+            startActivity(intent);
+
+
+        }else if (id == R.id.nav_retrofit) {
             //Activity RBR
             Intent intent = new Intent(this, Retrofit.class);
             startActivity(intent);
