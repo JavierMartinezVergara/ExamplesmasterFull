@@ -16,7 +16,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".retrofit.Retrofit"></activity>
+        <activity
+            android:name=".RX.RX_Java"
+            android:label="@string/title_activity_rx__java"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".retrofit.Retrofit" />
         <activity
             android:name=".JDBCImageSFTP.ImageFTP"
             android:theme="@style/AppTheme.NoActionBar" />

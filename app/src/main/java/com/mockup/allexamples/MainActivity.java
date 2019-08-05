@@ -16,6 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
 import com.mockup.allexamples.JDBCImageSFTP.ImageFTP;
+import com.mockup.allexamples.RX.RX_Java;
 import com.mockup.allexamples.notificaciones.Notificaciones;
 import com.mockup.allexamples.pokemonRetrofit.PokemonRetrofit;
 import com.mockup.allexamples.retrofit.Retrofit;
@@ -115,7 +116,10 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(this, Retrofit.class);
             startActivity(intent);
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.rx) {
+            //Activity RBR
+            Intent intent = new Intent(this, RX_Java.class);
+            startActivity(intent);
 
         }
 

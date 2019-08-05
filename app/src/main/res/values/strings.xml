@@ -18,5 +18,6 @@
     <!-- Ricardo -->
     <string name="titleR">Ricardo B. R.</string>
     <string name="menu_retrofit">Retrofit</string>
+    <string name="title_activity_rx__java">RX_Java</string>
 
 </resources>
