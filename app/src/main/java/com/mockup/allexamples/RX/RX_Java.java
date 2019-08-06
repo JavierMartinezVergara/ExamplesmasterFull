@@ -25,21 +25,24 @@ import retrofit2.Response;
 
 public class RX_Java extends AppCompatActivity {
     private final static String API_KEY = "466271beadeaccbda07a5a2249924095";
+    private RecyclerView recyclerView;
+    private MoviesAdapter mAdapter;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_rx__java);
 
         if (API_KEY.isEmpty()) {
             Toast.makeText(getApplicationContext(), "Please obtain your API KEY from themoviedb.org first!", Toast.LENGTH_LONG).show();
             return;
         }
 
-        final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerViewJavaRx);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
+        recyclerView = findViewById(R.id.recyclerViewJavaRx);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setAdapter(mAdapter);
         MovieAPI apiService =
                 ApiClientRetrofit.getClient().create(MovieAPI.class);
 
@@ -49,7 +52,7 @@ public class RX_Java extends AppCompatActivity {
             public void onResponse(Call<Movies> call, Response<Movies> response) {
                 int statusCode = response.code();
                 List<Movie> movies = response.body().getMovies();
-                recyclerView.setAdapter(new MoviesAdapter(movies, R.layout.list_item_movie, getApplicationContext()));
+                mAdapter = new MoviesAdapter(movies);
             }
 
             @Override

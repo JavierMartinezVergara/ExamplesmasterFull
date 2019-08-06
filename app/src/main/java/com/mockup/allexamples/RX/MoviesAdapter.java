@@ -33,6 +33,10 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieHolde
         this.context = context;
     }
 
+    public MoviesAdapter(List<Movie> movies){
+        this.movies = movies;
+    }
+
     @Override
     public void onBindViewHolder(@NonNull MovieHolder movieHolder, int i) {
         movieHolder.movieTitle.setText(movies.get(i).getTitle());
