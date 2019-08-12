@@ -2,6 +2,7 @@ package com.mockup.allexamples.RX.models;
 
 
 
+import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -20,7 +21,7 @@ public class Movies {
     private Integer totalPages;
     @SerializedName("Movies")
     @Expose
-    private List<Movie> Movies = null;
+    private ArrayList<Movie> Movies = null;
 
     /**
      * No args constructor for use in serialization
@@ -36,7 +37,7 @@ public class Movies {
      * @param page
      * @param totalPages
      */
-    public Movies(Integer page, Integer totalMovies, Integer totalPages, List<Movie> Movies) {
+    public Movies(Integer page, Integer totalMovies, Integer totalPages, ArrayList<Movie> Movies) {
         super();
         this.page = page;
         this.totalMovies = totalMovies;
@@ -68,11 +69,11 @@ public class Movies {
         this.totalPages = totalPages;
     }
 
-    public List<Movie> getMovies() {
+    public ArrayList<Movie> getMovies() {
         return Movies;
     }
 
-    public void setMovies(List<Movie> Movies) {
+    public void setMovies(ArrayList<Movie> Movies) {
         this.Movies = Movies;
     }
 

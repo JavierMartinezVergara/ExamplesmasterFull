@@ -17,6 +17,7 @@ import com.mockup.allexamples.RX.models.ApiClientRetrofit;
 import com.mockup.allexamples.RX.models.Movie;
 import com.mockup.allexamples.RX.models.Movies;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -39,10 +40,15 @@ public class RX_Java extends AppCompatActivity {
             return;
         }
 
-        recyclerView = findViewById(R.id.recyclerViewJavaRx);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView = findViewById(R.id.recycler);
+        mAdapter = new MoviesAdapter(this);
         recyclerView.setAdapter(mAdapter);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+
+
         MovieAPI apiService =
                 ApiClientRetrofit.getClient().create(MovieAPI.class);
 
@@ -51,8 +57,9 @@ public class RX_Java extends AppCompatActivity {
             @Override
             public void onResponse(Call<Movies> call, Response<Movies> response) {
                 int statusCode = response.code();
-                List<Movie> movies = response.body().getMovies();
-                mAdapter = new MoviesAdapter(movies);
+                ArrayList<Movie> movies = response.body().getMovies();
+                mAdapter.addMovie(movies);
+
             }
 
             @Override
@@ -61,5 +68,9 @@ public class RX_Java extends AppCompatActivity {
 
             }
         });
+
+
     }
+
+
 }
