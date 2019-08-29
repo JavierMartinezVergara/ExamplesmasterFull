@@ -7,10 +7,10 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="menu_tools">Tools</string>
+    <string name="menu_home">Poke API</string>
+    <string name="menu_gallery">Fragments and Tabs</string>
+    <string name="menu_slideshow">Notificaciones</string>
+    <string name="menu_tools">Images</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
     <string name="title_activity_image_ftp">ImageFTP</string>
@@ -38,7 +38,7 @@
     <!-- Ricardo -->
     <string name="titleR">Ricardo B. R.</string>
     <string name="menu_retrofit">Retrofit</string>
-
+    <string name="textolargo_notificacion">Las notificaciones por tanto ofrecen al usuario información en tiempo real sobre novedades que están ocurriendo en los datos de la aplicación, por ejemplo que ha recibido un nuevo mensaje de otro usuario o que se ha publicado una nueva oferta que puede interesarle o por ejemplo que ha llegado la hora de comer y le sugerimos algún restaurante próximo a donde se encuentra</string>
 
 
 </resources>
