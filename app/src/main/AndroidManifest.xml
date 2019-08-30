@@ -11,32 +11,33 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-
-        >
-        <!-- Set custom default icon. This is used when no icon is set for incoming notification messages.
-             See README(https://goo.gl/l4GJaQ) for more. -->
-        <meta-data
-            android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@drawable/ic_action_name" />
-        <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
-             notification message. See README(https://goo.gl/6BKBk7) for more. -->
-        <meta-data
-            android:name="com.google.firebase.messaging.default_notification_color"
-            android:resource="@android:color/holo_orange_dark" />
-
-        <meta-data
-            android:name="com.google.firebase.messaging.default_notification_channel_id"
-            android:value="string/defaultnotification"></meta-data>
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".Firebase.FirebaseExamples"
+            android:label="@string/title_activity_firebase_examples"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mockup.allexamples.MainActivity" />
+        </activity>
+        <!--
+         Set custom default icon. This is used when no icon is set for incoming notification messages.
+             See README(https://goo.gl/l4GJaQ) for more.
+        -->
         <activity
             android:name=".RX.RX_Java"
             android:label="@string/title_activity_rx__java"
             android:theme="@style/AppTheme.NoActionBar" />
-
+        <!--
+ Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more.
+        -->
         <activity android:name=".retrofit.Retrofit" />
         <activity
             android:name=".JDBCImageSFTP.ImageFTP"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity android:name=".notificaciones.Notificaciones" />
         <activity
             android:name=".sharedPreferencesP.SharedPreferences"
@@ -52,19 +53,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_action_name" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@android:color/holo_orange_dark" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="string/defaultnotification" />
 
-        <!--Services-->
+
+        <!-- REceivers -->
+        <receiver android:name=".notificaciones.NotificationReceiver" />
+        <receiver android:name=".notificaciones.ReplicacionDirectaReceiver" />
+        <!-- Services -->
         <service
             android:name=".Firebase.MyFirebaseMgsService"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"></action>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 
-        <!--REceivers-->
-        <receiver android:name=".notificaciones.NotificationReceiver"></receiver>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

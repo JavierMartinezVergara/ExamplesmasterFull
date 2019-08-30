@@ -18,27 +18,16 @@
 
     <!--Firebase-->
     <string name="title_activity_rx__java">RX Java</string>
-    <string name="msg_token_fmt" ></string>
+    <string name="msg_token_fmt"></string>
     <string name="defaultnotification">default_channel</string>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     <!-- Ricardo -->
     <string name="titleR">Ricardo B. R.</string>
     <string name="menu_retrofit">Retrofit</string>
     <string name="textolargo_notificacion">Las notificaciones por tanto ofrecen al usuario información en tiempo real sobre novedades que están ocurriendo en los datos de la aplicación, por ejemplo que ha recibido un nuevo mensaje de otro usuario o que se ha publicado una nueva oferta que puede interesarle o por ejemplo que ha llegado la hora de comer y le sugerimos algún restaurante próximo a donde se encuentra</string>
+    <string name="title_activity_firebase_examples">FirebaseExamples</string>
+    <string name="firebaseexamples">Firebase</string>
 
 
 </resources>

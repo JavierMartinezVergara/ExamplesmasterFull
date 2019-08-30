@@ -38,14 +38,21 @@
         android:onClick="envCanal2"
         android:id="@+id/btnCanal2">
     </Button>
+
+
     <Button
+        android:id="@+id/btnCanal3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Notificacion a Canal 3"
         android:onClick="envCanal3"
-        android:id="@+id/btnCanal3">
-    </Button>
+        android:text="Notificacion a Canal 3"></Button>
 
+    <Button
+        android:id="@+id/btnMensaje"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="sendChannel1Notification"
+        android:text="Notificacion tipo Mensajeria"></Button>
 
 
 </LinearLayout>

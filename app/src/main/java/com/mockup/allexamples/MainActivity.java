@@ -26,6 +26,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.mockup.allexamples.Firebase.FirebaseExamples;
 import com.mockup.allexamples.JDBCImageSFTP.ImageFTP;
 import com.mockup.allexamples.RX.RX_Java;
 import com.mockup.allexamples.notificaciones.Notificaciones;
@@ -126,7 +127,14 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
 
 
-        } else if (id == R.id.nav_retrofit) {
+        }
+        else if (id == R.id.firebaseexamples) {
+            intent= new Intent(this, FirebaseExamples.class);
+
+            startActivity(intent);
+
+
+        }else if (id == R.id.nav_retrofit) {
             //Activity RBR
             Intent intent = new Intent(this, Retrofit.class);
             startActivity(intent);

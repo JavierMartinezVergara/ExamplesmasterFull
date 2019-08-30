@@ -2,12 +2,16 @@ package com.mockup.allexamples.notificaciones;
 
 import android.app.Notification;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
+import android.support.v4.media.session.MediaSessionCompat;
+import android.support.v4.app.RemoteInput;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,16 +19,26 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.mockup.allexamples.R;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static com.mockup.allexamples.notificaciones.AppNotification.CHANNEL_1_ID;
 import static com.mockup.allexamples.notificaciones.AppNotification.CHANNEL_2_ID;
 public class Notificaciones extends AppCompatActivity {
+
 
     private NotificationManagerCompat notificationManagerCompat;
     private EditText texto, mensaje;
     private Button canal1, canal2;
 
+    private MediaSessionCompat mediaSessionCompat;
 
+    static List<Mensajes> MESSAGES = new ArrayList<>() ;
 
+    public void sendChannel1Notification(View v) {
+        envMensaje(this);
+    }
 
 
     @Override
@@ -37,6 +51,13 @@ public class Notificaciones extends AppCompatActivity {
         canal2 = findViewById(R.id.btnCanal2);
 
         notificationManagerCompat = NotificationManagerCompat.from(this);
+
+        mediaSessionCompat = new MediaSessionCompat(this, "tag");
+
+        MESSAGES.add(new Mensajes("Buen Dia!","Javier"));
+        MESSAGES.add(new Mensajes("Hola",null));
+        MESSAGES.add(new Mensajes("Hola","Sofia"));
+
     }
 
     public void envCanal1(View view) {
@@ -81,18 +102,22 @@ public class Notificaciones extends AppCompatActivity {
         String titulo = texto.getText().toString();
         String msg = mensaje.getText().toString();
 
-
+        Bitmap imagen = BitmapFactory.decodeResource(getResources(),R.drawable.imagen_notificacion);
 
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_2_ID)
                 .setSmallIcon(R.drawable.ic_two)
                 .setContentTitle(titulo)
                 .setContentText(msg)
-                .setStyle(new NotificationCompat.InboxStyle()
-                        .addLine("Linea 1").addLine("Linea 2").addLine("Linea 3").addLine("Linea 4").addLine("Linea 5").addLine("Linea 6")
-                        .setBigContentTitle("Contenido de Texto")
-                        .setSummaryText("Resumen Texto")
-                        )
-
+                .setLargeIcon(imagen)
+                .addAction(R.drawable.ic_dislike, "Dislike", null)
+                .addAction(R.drawable.ic_skip_previous, "Previous", null)
+                .addAction(R.drawable.ic_pause, "Pause", null)
+                .addAction(R.drawable.ic_skip_next, "Next", null)
+                .addAction(R.drawable.ic_like, "Like", null)
+                .setStyle(new android.support.v4.media.app.NotificationCompat.MediaStyle()
+                            .setShowActionsInCompactView(1,2,3)
+                            .setMediaSession(mediaSessionCompat.getSessionToken()))
+                .setSubText("Player Music")
                 .setPriority(NotificationCompat.PRIORITY_LOW)
                 .setCategory(NotificationCompat.CATEGORY_MESSAGE)
                 .build();
@@ -129,5 +154,64 @@ public class Notificaciones extends AppCompatActivity {
                 .build();
 
         notificationManagerCompat.notify(3, notification);
+    }
+
+    public static void envMensaje(Context context) {
+
+
+        Intent activityIntent = new Intent(context, Notificaciones.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(context,
+                0, activityIntent, 0);
+
+        RemoteInput remoteInput = new RemoteInput.Builder("key_text_reply")
+                .setLabel("Your answer...")
+                .build();
+
+        Intent replyIntent;
+        PendingIntent replyPendingIntent = null;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            replyIntent = new Intent(context, ReplicacionDirectaReceiver.class);
+            replyPendingIntent = PendingIntent.getBroadcast(context,
+                    0, replyIntent, 0);
+        } else {
+            //start chat activity instead (PendingIntent.getActivity)
+            //cancel notification with notificationManagerCompat.cancel(id)
+        }
+
+        NotificationCompat.Action replyAction = new NotificationCompat.Action.Builder(
+                R.drawable.ic_reply,
+                "Reply",
+                replyPendingIntent
+        ).addRemoteInput(remoteInput).build();
+
+        NotificationCompat.MessagingStyle messagingStyle =
+                new NotificationCompat.MessagingStyle("Me");
+        messagingStyle.setConversationTitle("Group Chat");
+
+        for (Mensajes chatMessage : MESSAGES) {
+            NotificationCompat.MessagingStyle.Message notificationMessage =
+                    new NotificationCompat.MessagingStyle.Message(
+                            chatMessage.getText(),
+                            chatMessage.getTimestamp(),
+                            chatMessage.getSender()
+                    );
+            messagingStyle.addMessage(notificationMessage);
+        }
+
+        Notification notification = new NotificationCompat.Builder(context, CHANNEL_1_ID)
+                .setSmallIcon(R.drawable.ic_one)
+                .setStyle(messagingStyle)
+                .addAction(replyAction)
+                .setColor(Color.BLUE)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                .setContentIntent(contentIntent)
+                .setAutoCancel(true)
+                .setOnlyAlertOnce(true)
+                .build();
+
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
+        notificationManager.notify(1, notification);
     }
 }
