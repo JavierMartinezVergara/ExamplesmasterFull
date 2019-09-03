@@ -8,11 +8,11 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Build;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import android.support.v4.media.session.MediaSessionCompat;
-import android.support.v4.app.RemoteInput;
-import android.support.v7.app.AppCompatActivity;
+import androidx.core.app.RemoteInput;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -114,7 +114,7 @@ public class Notificaciones extends AppCompatActivity {
                 .addAction(R.drawable.ic_pause, "Pause", null)
                 .addAction(R.drawable.ic_skip_next, "Next", null)
                 .addAction(R.drawable.ic_like, "Like", null)
-                .setStyle(new android.support.v4.media.app.NotificationCompat.MediaStyle()
+                .setStyle(new androidx.media.app.NotificationCompat.MediaStyle()
                             .setShowActionsInCompactView(1,2,3)
                             .setMediaSession(mediaSessionCompat.getSessionToken()))
                 .setSubText("Player Music")

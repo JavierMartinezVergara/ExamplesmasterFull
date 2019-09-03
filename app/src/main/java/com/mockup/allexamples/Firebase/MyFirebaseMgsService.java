@@ -9,8 +9,7 @@ import android.graphics.Color;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
+import androidx.core.app.NotificationCompat;
 
 
 import com.google.firebase.messaging.FirebaseMessagingService;
@@ -46,41 +45,13 @@ public class MyFirebaseMgsService extends FirebaseMessagingService {
     private void showNotificacion(Map<String, String> data) {
         String title = data.get("title").toString();
         String body = data.get("body").toString();
-        String NOTIFICACION_CHANNEL_ID = getString(R.string.defaultnotification);
+        String NOTIFICACION_CHANNEL_ID = "";
     }
+
+
 
     private void showNotificacion(String title, String body) {
 
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this,0,intent,PendingIntent.FLAG_ONE_SHOT);
-
-        Uri defaultsoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-
-        String NOTIFICATION_CHANNEL_ID = getString(R.string.defaultnotification);
-
-        NotificationCompat.Builder notificactionbuilder = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID);
-        notificactionbuilder.setContentTitle(title)
-                .setColor(rgb(255,160,90))
-                .setSmallIcon(R.drawable.ic_action_name)
-                .setAutoCancel(true)
-                .setVibrate(new long[]{0,1000,500,1000})
-                .setSound(defaultsoundUri)
-                .setContentInfo("info")
-                .setContentText(body);
-
-
-        NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel notificationchannel =
-                    new NotificationChannel(NOTIFICATION_CHANNEL_ID, "FirebaseTest", NotificationManager.IMPORTANCE_DEFAULT);
-            notificationchannel.setDescription("Descripcion");
-            notificationchannel.enableLights(true);
-            notificationchannel.setLightColor(Color.BLUE);
-            notificationchannel.setVibrationPattern(new long[]{0,1000,500,1000});
-            notificationManager.createNotificationChannel(notificationchannel);
-        }
-        notificationManager.notify(0,notificactionbuilder.build());
 
     }
 

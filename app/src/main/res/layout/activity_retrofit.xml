@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".retrofit.Retrofit">
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -14,5 +14,5 @@
         android:padding="4dp"
         android:background="@color/cardview_dark_background">
 
-    </android.support.v7.widget.RecyclerView>
+    </androidx.recyclerview.widget.RecyclerView>
 </RelativeLayout>
