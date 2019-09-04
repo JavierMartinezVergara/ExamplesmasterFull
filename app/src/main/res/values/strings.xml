@@ -28,6 +28,10 @@
     <string name="textolargo_notificacion">Las notificaciones por tanto ofrecen al usuario información en tiempo real sobre novedades que están ocurriendo en los datos de la aplicación, por ejemplo que ha recibido un nuevo mensaje de otro usuario o que se ha publicado una nueva oferta que puede interesarle o por ejemplo que ha llegado la hora de comer y le sugerimos algún restaurante próximo a donde se encuentra</string>
     <string name="title_activity_firebase_examples">FirebaseExamples</string>
     <string name="firebaseexamples">Firebase</string>
+    <string name="autenticacionfirebase">Autenticacion</string>
+    <string name="databasefirebase">DatabaseFirebase</string>
+    <string name="storagefirebase">Storage Firebase</string>
+    <string name="nav_header_title_firebase">Firebase</string>
 
 
 </resources>
