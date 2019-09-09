@@ -16,7 +16,7 @@
             android:name=".Firebase.FirebaseExamples"
             android:label="@string/title_activity_firebase_examples"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/SharepreferencesTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mockup.allexamples.MainActivity" />

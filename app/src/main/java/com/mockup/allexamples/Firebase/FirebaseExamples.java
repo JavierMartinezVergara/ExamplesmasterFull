@@ -18,7 +18,11 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
+import android.view.Window;
+import android.view.WindowManager;
 
+import com.mockup.allexamples.Firebase.ui.home.HomeFragment;
+import com.mockup.allexamples.Firebase.ui.send.SendFragment;
 import com.mockup.allexamples.R;
 
 public class FirebaseExamples extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -31,23 +35,16 @@ public class FirebaseExamples extends AppCompatActivity implements NavigationVie
         setContentView(R.layout.activity_firebase_examples);
         Toolbar toolbar = findViewById(R.id.toolbar_firebase);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout_firebase);
         NavigationView navigationView = findViewById(R.id.nav_view_firebase);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+        navigationView.setNavigationItemSelectedListener(this);
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-        navigationView.setNavigationItemSelectedListener(this);
+
 
 
     }
@@ -89,20 +86,20 @@ public class FirebaseExamples extends AppCompatActivity implements NavigationVie
     @Override
     public boolean onNavigationItemSelected(MenuItem menuItem) {
 
-        int id = menuItem.getItemId();
+        switch (menuItem.getItemId()){
+            case R.id.autenticacionfirebase:
+                //requestWindowFeature(Window.FEATURE_NO_TITLE);
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+                getSupportActionBar().hide();
 
-        if(id==R.id.autenticacionfirebase){
+                getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+                break;
 
+            case R.id.databasefirebase:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SendFragment()).commit();
+                break;
 
         }
-        else if (id == R.id.storagefirebase) {
-
-
-
-
-
-        }
-
 
 
 
