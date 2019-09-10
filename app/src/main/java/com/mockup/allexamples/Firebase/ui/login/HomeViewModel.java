@@ -1,4 +1,4 @@
-package com.mockup.allexamples.Firebase.ui.home;
+package com.mockup.allexamples.Firebase.ui.login;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

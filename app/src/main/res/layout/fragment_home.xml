@@ -36,6 +36,7 @@
         android:gravity="bottom">
 
             <EditText
+                android:id="@+id/userfirebase"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email"
@@ -53,6 +54,7 @@
             android:layout_marginTop="4dp"
             android:background="#494949"/>
             <EditText
+                android:id="@+id/passwordfirebase"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
@@ -75,6 +77,7 @@
             android:layout_height="wrap_content">
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/loginboton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:fabCustomSize="80dp"
@@ -87,6 +90,7 @@
                 app:elevation="8dp"
                 app:srcCompat="@drawable/ic_sign_in"
                 android:background="@color/colorBlack"
+                android:layout_gravity="bottom|end"
                 />
 
             <TextView

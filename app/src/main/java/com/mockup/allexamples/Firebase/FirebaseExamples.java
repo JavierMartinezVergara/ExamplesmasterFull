@@ -1,16 +1,11 @@
 package com.mockup.allexamples.Firebase;
 
 import android.os.Bundle;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import android.view.MenuItem;
-import android.view.View;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.view.GravityCompat;
-import androidx.navigation.ui.AppBarConfiguration;
 
 import com.google.android.material.navigation.NavigationView;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -18,10 +13,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
-import android.view.Window;
 import android.view.WindowManager;
 
-import com.mockup.allexamples.Firebase.ui.home.HomeFragment;
+import com.mockup.allexamples.Firebase.ui.login.LoginFragment;
 import com.mockup.allexamples.Firebase.ui.send.SendFragment;
 import com.mockup.allexamples.R;
 
@@ -89,7 +83,7 @@ public class FirebaseExamples extends AppCompatActivity implements NavigationVie
         switch (menuItem.getItemId()){
             case R.id.autenticacionfirebase:
                 //requestWindowFeature(Window.FEATURE_NO_TITLE);
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new LoginFragment()).commit();
                 getSupportActionBar().hide();
 
                 getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
